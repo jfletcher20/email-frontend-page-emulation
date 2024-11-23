@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Telecom Email</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login-container">
+        <form id="login-form">
+            <h1>Global Telecom</h1>
+            <label for="username">Username</label>
+            <div class="username-container">
+                <input style="width: 50%" type="text" id="username" placeholder="e.g., rod.lewis.gt">
+                <span style="position: absolute; padding-top: 0.75rem; user-select: none;">@global-telecom.com</span>
+            </div>
+            <label for="password">Password</label>
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Enter your password">
+                <button href="" type="button" id="toggle-password" style="position: absolute; align-self: flex-start; margin-top: 0.3rem; margin-left: 21.5rem">👁</button>
+            </div>
+            <button type="submit" id="login-button">Log In</button>
+            <p id="error-message"></p>
+        </form>
+    </div>
+
+    <div id="email-container" class="hidden">
+        <div id="warning-banner">
+            The current account has been locked and is available in read-only mode. If you believe this is an error, please contact a system administrator.
+            <button id="close-warning">X</button>
+        </div>
+        <div id="user-info"></div>
+        <div id="email-list">
+            <p>Welcome to Global Telecom! Select an email to read.</p>
+        </div>
+        <div id="email-details"></div>
+    </div>
+
+    <script src="displayable.js"></script>
+    <script src="user.js"></script>
+    <script src="mail.js"></script>
+    <script src="server-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
