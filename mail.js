@@ -1,5 +1,5 @@
 class Mail extends Displayable {
-    static #baseLink = "http://localhost:5500";
+    static #baseLink = "https://jfletcher20.github.io/email-frontend-page-emulation/";
     constructor(id, subject, content, datetime, sender, recipient, read, attachment = undefined) {
         super();
         this.id = id;
