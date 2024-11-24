@@ -1,7 +1,7 @@
 
 
 class Mail extends Displayable {
-    constructor(id, subject, content, datetime, sender, recipient, read) {
+    constructor(id, subject, content, datetime, sender, recipient, read, attachment = undefined) {
         super();
         this.id = id;
         this.subject = subject;
@@ -10,6 +10,7 @@ class Mail extends Displayable {
         this.sender = sender;
         this.recipient = recipient;
         this.read = read;
+        this.attachment = attachment;
     }
 
     get displayCard() {
@@ -47,7 +48,9 @@ class Mail extends Displayable {
                 </div>
             </div>
             <p>${date}</p>
-            <div>${this.content}</div>`;
+            <div>${this.content}</div>
+            ${this.attachment ? `<a href="${this.attachmentLink}" download>Download Attachment</a>` : ''}
+            `;
     }
 
     get displayInfoId() {
