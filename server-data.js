@@ -298,7 +298,7 @@ class ServerData {
 
         new Mail(1033,
             "Re: Just to be sure",
-            "Yup, encrypted the network traffic when using the server. Nothing to worry about, we're good.",
+            "Yup, encrypted the network traffic when using the server and even hid the file as a picture under a different name. Nothing to worry about, we're good.",
             "2024-07-29T19:43:00", 1, 2, true),
 
         new Mail(1034,
