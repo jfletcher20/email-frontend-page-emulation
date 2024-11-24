@@ -1,6 +1,5 @@
-/* General Styles */
 body {
-    font-family: 'Roboto', sans-serif; /* Modern, corporate font */
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,8 +10,8 @@ body {
     color: #333;
 }
 
-/* Container Styles */
-#login-container, #email-container {
+#login-container,
+#email-container {
     width: 400px;
     background: #ffffff;
     padding: 20px;
@@ -24,7 +23,6 @@ body {
     display: none;
 }
 
-/* Login Form Styles */
 h1 {
     text-align: center;
     color: #00467f;
@@ -39,7 +37,8 @@ label {
     color: #333;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"],
+input[type="password"] {
     width: calc(100% - 40px);
     padding: 10px;
     margin-bottom: 15px;
@@ -98,7 +97,6 @@ button[type="submit"]:disabled {
     text-align: center;
 }
 
-/* Email Screen Styles */
 #email-container {
     width: 800px;
     padding: 20px;
@@ -116,6 +114,9 @@ button[type="submit"]:disabled {
     align-items: center;
     font-weight: 500;
     color: #333;
+    position: fixed;
+    top: 2rem;
+    width: 770px;
 }
 
 #warning-banner button {
@@ -128,8 +129,14 @@ button[type="submit"]:disabled {
 
 #user-info {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: -0.3rem;
+    right: -3rem;
+    cursor: pointer;
+    border-radius: 0 0 0 6px;
+    background: #f8f9fa;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    padding: 10px;
 }
 
 .round-avatar {
@@ -140,6 +147,7 @@ button[type="submit"]:disabled {
 }
 
 .card {
+    user-select: none;
     border: 1px solid #ddd;
     padding: 15px;
     margin: 10px 0;
@@ -155,7 +163,16 @@ button[type="submit"]:disabled {
 }
 
 .card.unread {
-    background-color: #f1f8ff;
+    position: relative;
+}
+
+.card.unread::before {
+    content: "🔵";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 0.8rem;
+    color: #007bff;
 }
 
 .card.read {
@@ -169,9 +186,170 @@ button[type="submit"]:disabled {
     color: #555;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     #email-container {
         width: 95%;
     }
+}
+
+img.round-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.profile-card-container .display-info img.round-avatar {
+    width: 72px;
+    height: 72px;
+}
+
+.display-info {
+    display: flex;
+    align-items: center;
+}
+
+#email-content {
+    display: flex;
+    height: 80vh;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+#email-list {
+    width: 30%;
+    background-color: #f7f7f7;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+#email-list .card {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#email-list .card:hover {
+    background-color: #e0e0e0;
+}
+
+#email-details {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    width: 70%;
+}
+
+#email-details p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.active-email {
+    border-left: 3px solid #0078d4;
+    background-color: aliceblue !important;
+}
+
+.card .date {
+    margin-left: auto;
+}
+
+a {
+    color: #0078d4;
+}
+
+.logout-button {
+    background: none;
+    border: 1px solid #0078d4;
+    font-size: 1.2rem;
+    padding: 5px 0px;
+    cursor: pointer;
+    color: #0078d4;
+    border-radius: 6px;
+}
+
+.logout-button:hover {
+    background: #0078d4;
+    color: white;
+}
+
+.logout-button:active {
+    background: #005ba1;
+    color: white;
+}
+
+.email-signature {
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+::-webkit-scrollbar-corner {
+    background: #f1f1f1;
+}
+
+/* company sidetitle style */
+/* title of hte company "Global Telecom" will display on left side, rotated -90deg and centered*/
+#company-title {
+    position: absolute;
+    top: 42%;
+    left: 0;
+    transform: translateX(-500px) rotate(-90deg);
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgba(240, 248, 255, 0.293);
+    text-align: center;
+    width: 100vh;
+    margin-top: 20px;
+    /* all caps */
+    text-transform: uppercase;
+}
+/* Prevent horizontal scrolling across the entire page */
+html, body {
+    overflow-x: hidden;  /* Disable horizontal scrolling */
+    word-wrap: break-word; /* Ensure long words wrap to the next line */
+    overflow-wrap: break-word; /* Ensure long words break and don't overflow */
+}
+
+/* Prevent horizontal overflow in other containers */
+* {
+    box-sizing: border-box; /* Ensure padding and borders don't cause overflow */
+    word-wrap: break-word;  /* Allow content to wrap onto the next line */
+    overflow-wrap: break-word; /* For better word wrapping */
+}
+
+/* For specific content like emails, we also ensure content breaks properly */
+#email-container {
+    word-wrap: break-word;  /* Allow text to break and wrap onto the next line */
+    overflow-wrap: break-word; /* Prevent overflow for long words or URLs */
+}
+
+clue {
+    color: #0078d4;
+    font-weight: 700;
 }

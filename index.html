@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Telecom Email</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div id="login-container">
         <form id="login-form">
@@ -18,23 +20,41 @@
             <label for="password">Password</label>
             <div class="password-container">
                 <input type="password" id="password" placeholder="Enter your password">
-                <button href="" type="button" id="toggle-password" style="position: absolute; align-self: flex-start; margin-top: 0.3rem; margin-left: 21.5rem">👁</button>
+                <button href="" type="button" id="toggle-password"
+                    style="position: absolute; align-self: flex-start; margin-top: 0.3rem; margin-left: 21.5rem">👁</button>
             </div>
             <button type="submit" id="login-button">Log In</button>
             <p id="error-message"></p>
         </form>
+        <i>Site for use in <span style="color: cadetblue">example forensic images</span> developed by
+            <span style="color: cadetblue">Joshua Lee Fletcher</span>,
+            <span style="color: cadetblue">Noa Midžić</span>
+            <br>
+        </i>
     </div>
 
     <div id="email-container" class="hidden">
+        <i>Site for use in <span style="color: cadetblue">example forensic images</span> developed by
+            <span style="color: cadetblue">Joshua Lee Fletcher</span>,
+            <span style="color: cadetblue">Noa Midžić</span>
+            <br>
+        </i>
+        <h1 id="company-title">Global Telecom</h1>
+        <div id="user-info" class="online"></div>
         <div id="warning-banner">
-            The current account has been locked and is available in read-only mode. If you believe this is an error, please contact a system administrator.
-            <button id="close-warning">X</button>
+            The current account has been locked and is available in read-only mode.<br>
+            If you believe this is an error, please contact a system administrator.
+            <button id="close-warning">❌</button>
         </div>
-        <div id="user-info"></div>
-        <div id="email-list">
-            <p>Welcome to Global Telecom! Select an email to read.</p>
+        <div id="email-content">
+            <div id="email-list">
+                <p>Welcome to Global Telecom! Select an email to read.</p>
+            </div>
+            <div id="email-details">
+                <h1 style="margin-top: 50%;">You have <b style="color: rgba(7, 121, 134, 0.996)">1</b> new email!</h1>
+                <p style="text-align: center;">Select an email to view its details.</p>
+            </div>
         </div>
-        <div id="email-details"></div>
     </div>
 
     <script src="displayable.js"></script>
@@ -43,4 +63,5 @@
     <script src="server-data.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

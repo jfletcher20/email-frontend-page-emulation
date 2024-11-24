@@ -19,31 +19,26 @@ loginForm.addEventListener('submit', (e) => {
         if (username === "rod.lewis.gt" && password === "Sec12345") {
             loginContainer.classList.add('hidden');
             emailContainer.classList.remove('hidden');
-    
+
             const user = ServerData.getUser(1);
             document.getElementById('user-info').innerHTML = user.displayInfo;
-    
-            const emailList = document.getElementById('email-list');
-            emailList.innerHTML = ServerData.getMailsForUser(1)
-                .map(mail => mail.displayCard)
-                .join('');
+            setupUserInteractions(user, null, false, true);
 
-            emailList.addEventListener('click', (event) => {
-                const target = event.target;
-                if (target.classList.contains('card')) {
-                    const mailId = target.dataset.mailId;
-                    const mail = ServerData.mails.find(mail => mail.id == mailId);
-                    const mailSender = ServerData.getUser(mail.sender);
-                    const mailContainer = document.getElementById('mail-container');
-                    mailContainer.innerHTML = mail.displayInfo;
-                    mailContainer.classList.remove('hidden');
-                }
+            // load emails into the sidebar
+            const emailList = document.getElementById('email-list');
+            const emails = ServerData.getMailsForUser(1);
+
+            emailList.innerHTML = emails.map(mail => `<div class="in-email-list">${mail.displayCard}</div>`).join('');
+
+            emails.forEach((email) => {
+                document.getElementById(email.displayCardId).addEventListener('click', () => email.onclick());
             });
         } else {
             errorMessage.textContent = "Invalid username or password.";
         }
     }, 1200);
 });
+
 
 const togglePasswordButton = document.getElementById('toggle-password');
 
@@ -58,6 +53,6 @@ document.getElementById('close-warning').addEventListener('click', () => {
     if (warningBanner) {
         warningBanner.style.transition = 'opacity 0.3s ease';
         warningBanner.style.opacity = '0';
-        setTimeout(() => warningBanner.remove(), 300); // Remove after the fade-out transition
+        setTimeout(() => warningBanner.remove(), 300);
     }
 });
