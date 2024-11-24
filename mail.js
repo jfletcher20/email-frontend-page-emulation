@@ -1,6 +1,5 @@
-
-
 class Mail extends Displayable {
+    static #baseLink = "http://localhost:5500";
     constructor(id, subject, content, datetime, sender, recipient, read, attachment = undefined) {
         super();
         this.id = id;
@@ -22,7 +21,8 @@ class Mail extends Displayable {
         const previewSubject = this.subject.length > 32 ? this.subject.slice(0, 32) + '...' : this.subject;
 
         return `
-            <div id="${this.displayCardId}" class="card ${this.read ? 'read' : 'unread'}">
+            <div id="${this.displayCardId}" class="card ${this.read ? 'read' : 'unread'}
+            ${this.attachment != undefined ? ' attachment' : ''}">
                 <b>${previewSubject}</b>
                 <span class="date">${date}</span>
                 <p>${ServerData.getUser(this.sender).displayInfo}</p>
@@ -33,6 +33,11 @@ class Mail extends Displayable {
     get displayCardId() {
         return `email-card-${this.id}`;
     }
+
+    get attachmentLink() {
+        return `${Mail.#baseLink}/attachments/${this.attachment}`;
+    }
+
 
     get displayInfo() {
         const date = new Date(this.datetime).toLocaleString();
@@ -49,8 +54,7 @@ class Mail extends Displayable {
             </div>
             <p>${date}</p>
             <div>${this.content}</div>
-            ${this.attachment ? `<a href="${this.attachmentLink}" download>Download Attachment</a>` : ''}
-            `;
+            ${this.attachment != undefined ? `<a href="${this.attachmentLink}" download>Download Attachment</a>` : ''}`;
     }
 
     get displayInfoId() {
