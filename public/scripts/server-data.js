@@ -1,6 +1,6 @@
 
 class ServerData {
-    static #baseLink = "http://localhost:5500";
+    static #baseLink = "https://global-telecom-official.web.app";
     static users = [
         new User(1, "rod.lewis.gt@global-telecom.com", "Rodger", "Lewis", this.#baseLink + "/profile-pictures"),
         new User(2, "dia.chilapu.gt@your-secret-email.com", "Diane", "Chilapu", this.#baseLink + "/profile-pictures"),
