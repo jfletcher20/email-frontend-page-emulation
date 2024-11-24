@@ -17,7 +17,7 @@ class ServerData {
             "2024-11-23T10:00:00", 1, 2, true),
 
         new Mail(3,
-            "Can't make it", // 'Secret Key'
+            "Can't make it",
             `I'm sorry, I can't make it to the meeting. My wife has
             <clue>1</clue> last night <clue>shift</clue> this week, so I have to take care of the kids tonight. I'll make it up to you, I promise.<br><br>
             
