@@ -349,15 +349,6 @@ body {
     overflow-wrap: break-word;
 }
 
-.in-email-list .card {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    user-select: none;
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-}
 
 .in-email-list .card p {
     padding: 0px 4px;
